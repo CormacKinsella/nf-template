@@ -16,6 +16,9 @@ process FASTQC {
 	path "*fastqc.zip", emit: ch_fastqc
 	tuple val(task.process), val('fastqc'), eval('fastqc --version | sed "s/.* v//"'), topic: versions
 
+	when:
+	task.ext.when == null || task.ext.when
+
 	script:
 	"""
 
