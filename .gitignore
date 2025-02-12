@@ -1,0 +1,21 @@
+# Output files & directories
+
+.nextflow*
+work/
+results/
+report-*
+trace-*
+.DS_Store
+*.pyc
+null/
+
+# Pixi
+
+.pixi
+*.egg-info
+
+# Input data + exceptions
+
+data/*
+!data/.gitkeep
+!data/test/

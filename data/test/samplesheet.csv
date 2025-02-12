@@ -1,0 +1,2 @@
+id,fastq_1,fastq_2
+sample1,data/test/read1.fq.gz,data/test/read2.fq.gz
