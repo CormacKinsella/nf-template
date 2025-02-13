@@ -37,7 +37,7 @@ Main workflow
 					.collect()
 					.map { it.join('\n') }
 					.collectFile(name: 'package_versions.txt', newLine: true)
-					.set { ch_versions } 
+					.set { ch_versions }
 
 		emit:
 
