@@ -34,8 +34,7 @@ Example subtitles:
 
 
 <!-- RELEASE HISTORY -->
-
-## [1.0.0] - 2025-02-12
+## [1.0.0] - 2025-02-19
 
 ### Added
 
