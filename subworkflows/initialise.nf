@@ -65,7 +65,7 @@ workflow INITIALISE {
 
 		// Emit channels to main workflow
 
-			ch_samplesheet = ch_samplesheet
-			ch_reference = ch_reference
+			ch_samplesheet
+			ch_reference
 
 }
