@@ -13,7 +13,7 @@ Main workflow
 
 	include { FASTQC } from '../modules/fastqc.nf'
 
-// Main workflow logic
+// Main workflow
 
 	workflow TEMPLATE {
 
