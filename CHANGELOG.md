@@ -19,21 +19,31 @@ Example subtitles:
 
 -->
 
-
-<!-- PRE-RELEASE -->
-
-## [Unreleased] - date <!-- Keep at top, changes to expect in the upcoming release -->
+<!-- UNDEFINED FUTURE RELEASE -->
 
 ### Planned
 
+- Add in nf-core igenomes config when needed
 - Add help message approach from nf-core style rather than println method
 
-- Add pipeline completion subworkflow, email notification and status etc.
 
-- Add in nf-core igenomes config when needed
+<!-- PRE-RELEASE -->
+
+
+## [Unreleased] - date
+
+### Added
+
+- Pipeline email report on completion
+
+### Dependencies
+
+- Pixi installs `graphviz` and `msmtp-sendmail` for dag diagrams and emailing respectively
 
 
 <!-- RELEASE HISTORY -->
+
+
 ## [1.0.0] - 2025-02-19
 
 ### Added

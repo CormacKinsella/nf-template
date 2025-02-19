@@ -11,6 +11,12 @@ workflow INITIALISE {
 
 	main:
 
+		// Early error if email requested but address not provided
+
+			if (params.email_report && !params.email) {
+				error ("ERROR: Email reporting requested but no email address provided, please provide an email address with '--email'.")
+			}
+
 		// Import samplesheet
 		
 			Channel
