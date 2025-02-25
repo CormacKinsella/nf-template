@@ -4,6 +4,9 @@ shopt -s extglob
 
 rm -rf results
 
-cd work
-
-rm -rf  !(apptainer|singularity|conda)
+if [ -d "work" ]; then
+		cd work
+		rm -rf  !(apptainer|singularity|conda)
+else
+	echo "Work directory does not exist."
+fi
