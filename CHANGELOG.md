@@ -1,47 +1,28 @@
 # Changelog
 
-<!-- 
-
-Semantic Versioning, i.e. [MAJOR.MINOR.PATCH] - date
-
-https://keepachangelog.com/en/1.0.0/
-https://semver.org/spec/v2.0.0.html
-
-Example subtitles:
-
-	- Planned
-	- Added
-	- Changed
-	- Deprecated (soon to be removed)
-	- Removed
-	- Fixed (patches/bugs)
-	- Dependencies
-
--->
-
-<!-- UNDEFINED FUTURE RELEASE -->
+## [Unreleased]
 
 ### Planned
 
 - Add in nf-core igenomes config when needed
+
 - Add help message approach from nf-core style rather than println method
 
 
-<!-- PRE-RELEASE -->
 
+<!-- RELEASE HISTORY -->
 
-## [Unreleased] - date
+## [1.1.0] - 2025-02-27
 
 ### Added
 
 - Pipeline email report on completion
 
+- Docker dir for building base image, hosted on GitHub instead of DockerHub
+
 ### Dependencies
 
-- Pixi installs `graphviz` and `msmtp-sendmail` for dag diagrams and emailing respectively
-
-
-<!-- RELEASE HISTORY -->
+- Default `pixi.toml` installs `graphviz` and `msmtp-sendmail` for dag diagrams and emailing respectively
 
 
 ## [1.0.0] - 2025-02-19
