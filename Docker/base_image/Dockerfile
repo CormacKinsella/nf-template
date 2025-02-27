@@ -39,19 +39,19 @@ ENV DEBIAN_FRONTEND=
 RUN curl -s https://get.nextflow.io | bash && \
 	mv nextflow /usr/local/bin
 
-# Create cloud user/group, give ownership of required bin
+# Create gitpod user/group, give ownership of required bin
 
-RUN groupadd -g 33333 cloud && \
-	useradd -u 33333 -g cloud -m cloud -s /bin/bash && \
-	chown -R cloud:cloud /usr/local/bin
+RUN groupadd -g 33333 gitpod && \
+	useradd -u 33333 -g gitpod -m gitpod -s /bin/bash && \
+	chown -R gitpod:gitpod /usr/local/bin
 
-# Switch to cloud user for remaining installations & setup
+# Switch to gitpod user for remaining installations & setup
 
-USER cloud
+USER gitpod
 
 # Install pixi
 
-ENV HOME=/home/cloud
+ENV HOME=/home/gitpod
 
 ENV PATH="$HOME/.pixi/bin:$PATH"
 
