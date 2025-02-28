@@ -1,12 +1,4 @@
-# Base image
-
 FROM ubuntu:24.04
-
-# User is root by default, explicit due to later switch
-
-USER root
-
-# Skip interactive post-install configuration steps
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
@@ -30,7 +22,7 @@ RUN apt update && \
 	apt update && \
 	apt install -y apptainer
 
-# Reset the front end to its original value
+# Reset the front end to default
 
 ENV DEBIAN_FRONTEND=
 
@@ -39,19 +31,18 @@ ENV DEBIAN_FRONTEND=
 RUN curl -s https://get.nextflow.io | bash && \
 	mv nextflow /usr/local/bin
 
-# Create gitpod user/group, give ownership of required bin
+# Create user 'codespace'
 
-RUN groupadd -g 33333 gitpod && \
-	useradd -u 33333 -g gitpod -m gitpod -s /bin/bash && \
-	chown -R gitpod:gitpod /usr/local/bin
+RUN groupadd -g 33333 codespace && \
+	useradd -u 33333 -g codespace -m codespace -s /bin/bash && \
+	chown -R codespace:codespace /usr/local/bin
 
-# Switch to gitpod user for remaining installations & setup
+# Switch to codespace user
 
-USER gitpod
+USER codespace
+ENV HOME=/home/codespace
 
 # Install pixi
-
-ENV HOME=/home/gitpod
 
 ENV PATH="$HOME/.pixi/bin:$PATH"
 
@@ -61,28 +52,8 @@ RUN curl -fsSL https://pixi.sh/install.sh | bash
 
 RUN pixi global install -c conda-forge -c bioconda nf-core gh quarto
 
-# Add aliases
-
-RUN echo "alias ll='ls -alh'" >> $HOME/.bashrc && \
-	echo "alias l='ls -1'" >> $HOME/.bashrc && \
-	echo "alias li='ls -l | head -n 20'" >> $HOME/.bashrc && \
-	echo "alias lo='ls -l | tail -n 20'" >> $HOME/.bashrc && \
-	echo "alias ..='cd ../..'" >> $HOME/.bashrc && \
-	echo "alias ...='cd ../../..'" >> $HOME/.bashrc
-
-# Git configuration
-
-RUN git config --global alias.br branch && \
-	git config --global alias.ch checkout && \
-	git config --global alias.st status && \
-	git config --global alias.co commit && \
-	git config --global credential.helper '!gh auth git-credential' && \
-	echo "git () { if [[ \$1 == 'br' ]]; then command git br -a; elif [[ \$1 == 'st' ]]; then command git st -u; else command git \"\$@\"; fi; }" >> $HOME/.bashrc && \
-	echo 'parse_git_branch() { branch=$(git branch 2> /dev/null | sed -n "/^\*/s/^\* //p"); if [ -n "$branch" ]; then echo "($branch)"; fi; }' >> $HOME/.bashrc && \
-	echo 'PS1="\u:\$(pwd | sed \"s|^$HOME|~|\")\$(parse_git_branch)\$ "' >> $HOME/.bashrc && \
-	echo >> $HOME/.bashrc
-
 # Set WORKDIR
+
 WORKDIR $HOME
 
 # Define default command

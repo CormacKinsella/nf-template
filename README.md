@@ -9,12 +9,12 @@
 
 ## Quick start
 
-### Gitpod cloud test environment (update URL to the project repo)
+### Cloud development environment (update URL to the project repo)
 
-[![Open test environment in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/CormacKinsella/nf-template)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/CormacKinsella/nf-template)
 
 >[!TIP]
->The Gitpod environment includes pixi, Nextflow, Apptainer, and other useful tools - so you can directly run pipeline tests.
+>The environment includes pixi, Nextflow, Apptainer, and other useful tools - so you can directly run pipeline tests.
 
 ### Local or cluster installation
 
