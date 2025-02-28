@@ -1,8 +1,15 @@
 FROM ubuntu:24.04
 
+# Metadata
+
+ARG DESCRIPTION="Docker image for Nextflow development"
+LABEL org.opencontainers.image.description=$DESCRIPTION
+
+# Suppress interactive menus
+
 ENV DEBIAN_FRONTEND=noninteractive 
 
-# Install dependencies and tools
+# Install dependencies
 
 RUN apt-get update --quiet && \
 	apt-get install --quiet -y --no-install-recommends \
@@ -14,22 +21,16 @@ RUN apt-get update --quiet && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install apptainer
+# Install wave
 
-RUN apt update && \
-	apt install -y software-properties-common && \
-	add-apt-repository -y ppa:apptainer/ppa && \
-	apt update && \
-	apt install -y apptainer
+RUN curl -L -o wave-1.5.1.jar "https://github.com/seqeralabs/wave-cli/releases/download/v1.5.1/wave-1.5.1.jar"
+
+RUN chmod +x wave-1.5.1.jar && \
+	mv wave-1.5.1.jar /usr/local/bin
 
 # Reset the front end to default
 
 ENV DEBIAN_FRONTEND=
-
-# Install Nextflow
-
-RUN curl -s https://get.nextflow.io | bash && \
-	mv nextflow /usr/local/bin
 
 # Create user 'codespace'
 
@@ -48,9 +49,9 @@ ENV PATH="$HOME/.pixi/bin:$PATH"
 
 RUN curl -fsSL https://pixi.sh/install.sh | bash
 
-# Install some tools with pixi
+# Install tools
 
-RUN pixi global install -c conda-forge -c bioconda nf-core gh quarto
+RUN pixi global install -c conda-forge -c bioconda nextflow apptainer nf-core gh quarto
 
 # Set WORKDIR
 
