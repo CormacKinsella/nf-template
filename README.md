@@ -14,7 +14,7 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/CormacKinsella/nf-template)
 
 >[!TIP]
->The environment includes pixi, Nextflow, Apptainer, and other useful tools - so you can directly run pipeline tests.
+>The image includes pixi, Nextflow, Apptainer, wave, nf-core tools, and more - so you can directly run pipeline tests.
 
 ### Local or cluster installation
 
