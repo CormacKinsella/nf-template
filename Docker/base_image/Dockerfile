@@ -10,6 +10,7 @@ LABEL org.opencontainers.image.description=$DESCRIPTION
 ENV DEBIAN_FRONTEND=noninteractive 
 
 # Install dependencies
+# gh should remain here, as .gitconfig authentication helper assumes apt installation, i.e.: /usr/bin/gh
 
 RUN apt-get update --quiet && \
 	apt-get install --quiet -y --no-install-recommends \
