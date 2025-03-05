@@ -15,6 +15,7 @@ RUN apt-get update --quiet && \
 	apt-get install --quiet -y --no-install-recommends \
 	curl \
 	git \
+	gh \
 	tree \
 	ca-certificates \
 	default-jre && \
@@ -51,7 +52,7 @@ RUN curl -fsSL https://pixi.sh/install.sh | bash
 
 # Install tools
 
-RUN pixi global install -c conda-forge -c bioconda nextflow apptainer nf-core gh quarto
+RUN pixi global install -c conda-forge -c bioconda nextflow apptainer nf-core quarto
 
 # Set WORKDIR
 

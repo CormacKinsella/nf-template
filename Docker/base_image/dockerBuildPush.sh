@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE_VERSION=1.1	# Only edit this line
+IMAGE_VERSION=1.2	# Only edit this line
 
 IMAGE_NAME="ghcr.io/cormackinsella/nf-development"
 

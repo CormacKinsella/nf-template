@@ -4,6 +4,10 @@
 
 # Changelog
 
+## Version 1.2
+
+- Moved `gh` installation to apt, for compatibility with dotfiles `.gitconfig` credential helper
+
 ## Version 1.1
 
 - Added `wave`
