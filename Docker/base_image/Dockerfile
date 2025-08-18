@@ -53,9 +53,7 @@ RUN curl -fsSL https://pixi.sh/install.sh | bash
 
 # Install tools
 
-RUN pixi global install -c conda-forge -c bioconda nextflow apptainer nf-core quarto
-
-# Set WORKDIR
+RUN pixi global install -c conda-forge -c bioconda nextflow=25.04.6 apptainer=1.4.2 nf-core=3.3.2 quarto=1.7.33
 
 WORKDIR $HOME
 

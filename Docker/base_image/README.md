@@ -4,6 +4,10 @@
 
 # Changelog
 
+## Version 1.3
+
+- Lockdown pixi tool versions
+
 ## Version 1.2
 
 - Moved `gh` installation to apt, for compatibility with dotfiles `.gitconfig` credential helper
